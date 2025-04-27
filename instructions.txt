@@ -1,0 +1,7 @@
+instructions how to run the code
+
+1. create a virtual enviroment: 'python -m venv venv' 
+2.run the virtual enviroment: 'source venv/Scripts/activate'
+3.install the dependencies: 'pip install -r requirements.txt'
+4.store the API endpoint in the API_ENDPOINT constant variable
+5.
