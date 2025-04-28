@@ -269,7 +269,7 @@ publisher_counts.to_csv(
 number_of_pages = books_df["number_of_pages"].dropna()
 
 # We then use the median method to get the median number of pages
-median_pages = number_of_pages.median()
+median_pages = int(number_of_pages.median())
 
 print(f"The median number of pages is {median_pages}.")
 
