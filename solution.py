@@ -24,7 +24,46 @@
 # the same book (text) can be represented by more than one ISBN. We consider books with
 # different ISBN identifiers but with the same title value to be the same book.
 import requests
+import pandas as pd 
+API_ENDPOINT = "https://openlibrary.org/api/books"
 
-API_ENDPOINT = "https://openlibrary.org/isbn/"
-data_set = requests.get(API_ENDPOINT, timeout=2)
-print(data_set)
+
+df = pd.read_csv('books-isbns.txt',header=None,names=['isbn'])
+available_books = []
+unavailable_books = []
+for isbn in df['isbn']:
+    params = {
+        'bibkeys': f'ISBN:{isbn}',
+        'format': 'json',
+        'jscmd': 'data'
+    }
+    try:
+        response = requests.get(API_ENDPOINT, params=params, timeout=5)
+
+        if response.status_code == 200:
+            data = response.json()
+            key = f"ISBN:{isbn}"
+
+            if key in data:
+                available_books.append(data[key])
+            else:
+                print(f"No data found for ISBN: {isbn}")
+                unavailable_books.append(data[key])
+        else:
+            print(f'Failed to fetch data for ISBN: {isbn} - Status Code: {response.status_code}')
+    except Exception as e:
+        print(f"Error fetching ISBN {isbn}: {e}")
+
+
+if available_books:
+    books_df = pd.DataFrame(results)
+    books_df.to_csv('fetched_books.csv', index=False)
+    print(books_df.head())
+else:
+    print("No valid data fetched.")
+
+
+
+# test = requests.get('https://openlibrary.org/api/books?bibkeys=ISBN:9780316134262,format=json&jscmd=data',timeout=2)
+# print(test.text)
+# var _OLBookInfo = {"ISBN:9780316134262": {"url": "https://openlibrary.org/books/OL44242367M/Deadline", "key": "/books/OL44242367M", "title": "Deadline", "authors": [{"url": "https://openlibrary.org/authors/OL6807570A/Seanan_McGuire", "name": "Seanan McGuire"}], "pagination": "624", "identifiers": {"isbn_13": ["9780316134262"], "openlibrary": ["OL44242367M"]}, "publishers": [{"name": "Orbit"}], "publish_date": "2011"}};
