@@ -1,9 +1,7 @@
 instructions how to run the code
 
-1. create a virtual enviroment: 'python -m venv venv' 
+1.create a virtual enviroment: 'python -m venv venv' 
 2.run the virtual enviroment: 'source venv/Scripts/activate'
 3.install the dependencies: 'pip install -r requirements.txt'
-4.store the API endpoint in the API_ENDPOINT constant variable
-5.load a dataframe object from the books-isbn.txt
-6.looping over the dataframe object to get all available and unavailable books into two different arrays
-7.
+4.run python solution.py to get all the logs
+

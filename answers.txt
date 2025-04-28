@@ -1,13 +1,29 @@
-The outputs from the logs for each answer
+Questions:
+1. How many different books are in the list?
+2. What is the book with the most number of different ISBNs?
+3. How many books don’t have a goodreads id?
+4. How many books have more than one author?
+5. What is the number of books published per publisher?
+6. What is the median number of pages for books in this list?
+7. What is the month with the most number of published books?
+8. What is/are the longest word/s that appear/s either in a book’s description or in the first
+sentence of a book? In which book (title) it appears?
+9. What was the last book published in the list?
+10. What is the year of the most updated entry in the list?
+11. What is the title of the second published book for the author with the highest number of
+different titles in the list?
+12. What is the pair of (publisher, author) with the highest number of books published?
 
-1.
-2.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
+Answers:
+1. 472 Diffrent books 
+2. 'The Night Circus' with 14 editions
+3. 464 books without a Goodreads ID
+4. 132 books 
+5. CSV files included in zip (publishers_count and publishers_counts_mapped)
+6. 340 pages 
+7. May with 44 books
+8. 'fourth-magnitude' in 'The Dragonlover's Guide to Pern'
+9. 'Dearly' on 2021-11-02
+10. 2021
+11. Author 'Robin Hobb', Book 'The Farseer'
+12. 'Orbit', 'N. K. Jemisin' with 26 books 
